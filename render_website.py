@@ -21,6 +21,7 @@ def on_reload():
         file.write(rendered_page)
 
 
+on_reload()
 server = Server()
 server.watch('template.html', on_reload)
 server.serve(root='.')

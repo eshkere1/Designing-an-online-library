@@ -1,16 +1,14 @@
 from livereload import Server, shell
 from more_itertools import chunked
 import os
-
 import json
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-with open("meta_data.json", "r", encoding="utf-8") as my_file:
-    books = json.load(my_file)
-
 
 def on_reload():
+    with open("meta_data.json", "r", encoding="utf-8") as my_file:
+        books = json.load(my_file)
     books_count = 10
     download_books_pages = list(chunked(books, books_count))
     os.makedirs("pages", exist_ok=True)
@@ -29,8 +27,11 @@ def on_reload():
             file.write(rendered_page)
 
 
-on_reload()
-server = Server()
-server.watch('template.html', on_reload)
-server.serve(root='.', default_filename="./pages/index1.html")
+def main():
+    server = Server()
+    server.watch('template.html', on_reload)
+    server.serve(root='.', default_filename="./pages/index1.html")
 
+
+if __name__ == "__main__":
+    main()

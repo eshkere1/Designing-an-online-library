@@ -1,6 +1,8 @@
 # Онлайн-библиотека SFBook
 Программа загружает предустановленные книги из папки books/, картинки к ним из папки img/ на [сайт](https://eshkere1.github.io/Designing-an-online-library/pages/index1.html)
 
+![Image](https://github.com/user-attachments/assets/4241928d-2c7f-46f8-9c82-4978991b5001)
+
 ## Установка
     Сделайте fork репозитория с библиоткой и сохраните себе на компьютер. Python 3 должен быть уже установлен.
 

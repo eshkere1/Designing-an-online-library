@@ -7,7 +7,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 def on_reload():
-    path = os.environ["META_DATA_PATH"]
+    path = os.environ.get("META_DATA_PATH", "meta_data.json")
     with open(path, "r", encoding="utf-8") as my_file:
         books = json.load(my_file)
     books_count = 10
